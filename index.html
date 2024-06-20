@@ -61,7 +61,9 @@
           <label for="musicUrl">音乐链接</label>
           <input type="text" id="musicUrl" class="form-control" />
         </div>
-        <button id="addMusic" class="btn btn-primary btn-sm">添加到播放列表</button>
+        <button id="addMusic" class="btn btn-primary btn-sm">
+          添加到播放列表
+        </button>
         <button id="githubButton" class="btn btn-success btn-sm">
           从 GitHub 获取音乐
         </button>
@@ -130,6 +132,7 @@
       $(document).ready(function () {
         const playlist = JSON.parse(localStorage.getItem("playlist")) || [];
         let aplayerInstance;
+        let currentPlayIndex;
         const alertPlaceholder = document.getElementById(
           "liveAlertPlaceholder"
         );
@@ -143,6 +146,13 @@
             autoplay: true,
             order: "random",
             listFolded: true, // 默认折叠播放列表
+          });
+          // 监听播放一首歌曲的时候记录当前位置
+          aplayerInstance.on("play", () => {
+            const currentIndex = aplayerInstance.list.index;
+            console.log("ended on:", currentIndex);
+            currentPlayIndex = currentIndex;
+            renderPlaylist();
           });
         }
 
@@ -159,6 +169,10 @@
               .append(
                 $("<span>")
                   .css("cursor", "pointer")
+                  .css(
+                    "color",
+                    currentPlayIndex === index ? "#0d6efd" : "#212529"
+                  )
                   .text(music.name)
                   .on("click", () => {
                     aplayerInstance.list.switch(index);
@@ -194,7 +208,6 @@
         function addMusic(name, url) {
           if (isValidUrl(url)) {
             let isPlaying = !aplayerInstance.audio.paused;
-            let currentIndex = aplayerInstance.list.index;
 
             playlist.push({ name, url });
             savePlaylist();
@@ -207,8 +220,6 @@
 
         // 移除音乐
         function removeMusic(index) {
-          let currentIndex = aplayerInstance.list.index;
-
           playlist.splice(index, 1);
           savePlaylist();
           renderPlaylist();
@@ -232,7 +243,7 @@
                 file.name.endsWith("." + fileExtension)
               ) {
                 const fileName = file.name;
-                const fileUrl = `https://cdn.jsdelivr.net/gh/${owner}/${repo}@${s}/${file.path}`;
+                const fileUrl = `https://cdn.jsdelivr.net/gh/${owner}/${repo}/${file.path}`;
                 addMusic(fileName, fileUrl);
               }
             });
