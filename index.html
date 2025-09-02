@@ -274,7 +274,7 @@
       min-width: 0;
     }
 
-    .player-info h3 {
+    .player-info h6 {
       margin: 0 0 5px 0;
       color: #333;
       font-weight: 600;
@@ -491,7 +491,7 @@
         order: 1.5;
       }
 
-      .player-info h3 {
+      .player-info h6 {
         font-size: 0.9rem;
         margin-bottom: 2px;
         line-height: 1.2;
@@ -559,7 +559,7 @@
         height: 44px;
       }
 
-      .player-info h3 {
+      .player-info h6 {
         font-size: 0.85rem;
       }
 
@@ -617,11 +617,9 @@
       color: #333;
     }
 
-    .stats h2 {
+    .stats h6 {
       margin: 0 0 10px 0;
       opacity: 0.9;
-      font-size: 1rem;
-      font-weight: 600;
     }
 
     .stats .badge {
@@ -703,32 +701,32 @@
   <div class="container-fluid">
     <div class="music-container">
       <!-- Header -->
-      <header class="header">
-        <h1><i class="fas fa-music" aria-hidden="true"></i> 音乐播放器</h1>
+      <div class="header">
+        <h1><i class="fas fa-music"></i> 音乐播放器</h1>
         <p>享受美妙的音乐时光</p>
-      </header>
+      </div>
 
       <!-- Stats -->
-      <section class="stats" id="stats" style="display: none;" aria-label="播放统计">
-        <h2><i class="fas fa-chart-bar" aria-hidden="true"></i> 播放统计</h2>
+      <div class="stats" id="stats" style="display: none;">
+        <h6><i class="fas fa-chart-bar"></i> 播放统计</h6>
         <span class="badge" id="totalSongs">总歌曲: 0</span>
         <span class="badge" id="totalDuration">总时长: 0分钟</span>
-      </section>
+      </div>
 
       <!-- Playlist Section -->
-      <main class="playlist-section" role="main">
-        <div class="loading" id="loading" role="status" aria-live="polite">
-          <i class="fas fa-spinner" aria-hidden="true"></i>
+      <div class="playlist-section">
+        <div class="loading" id="loading">
+          <i class="fas fa-spinner"></i>
           <p>正在加载音乐列表...</p>
         </div>
 
-        <div class="error-message" id="errorMessage" style="display: none;" role="alert">
-          <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+        <div class="error-message" id="errorMessage" style="display: none;">
+          <i class="fas fa-exclamation-triangle"></i>
           <p>加载音乐列表失败，请稍后重试</p>
         </div>
 
-        <section id="playlist" style="display: none;" aria-label="音乐播放列表"></section>
-      </main>
+        <div id="playlist" style="display: none;"></div>
+      </div>
 
       <!-- APlayer (隐藏) -->
       <div id="aplayer"></div>
@@ -736,54 +734,54 @@
   </div>
 
   <!-- 自定义播放器 -->
-  <footer class="custom-player" id="customPlayer" role="complementary" aria-label="音乐播放器">
+  <div class="custom-player" id="customPlayer">
     <div class="player-content">
-      <img src="" alt="当前播放歌曲封面" class="player-cover" id="playerCover">
+      <img src="" alt="封面" class="player-cover" id="playerCover">
 
       <div class="player-info">
-        <h3 id="playerTitle">选择一首歌曲开始播放</h3>
+        <h6 id="playerTitle">选择一首歌曲开始播放</h6>
         <p id="playerArtist">未知艺术家</p>
       </div>
 
-      <button class="control-btn minimize-btn" id="minimizeBtn" title="最小化播放器" aria-label="最小化播放器">
-        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      <button class="control-btn minimize-btn" id="minimizeBtn" title="最小化播放器">
+        <i class="fas fa-chevron-down"></i>
       </button>
 
-      <div class="player-controls" role="group" aria-label="播放控制">
-        <button class="control-btn" id="prevBtn" title="上一首" aria-label="播放上一首歌曲">
-          <i class="fas fa-step-backward" aria-hidden="true"></i>
-        </button>
-        <button class="control-btn play-pause" id="playPauseBtn" title="播放/暂停" aria-label="播放或暂停当前歌曲">
-          <i class="fas fa-play" aria-hidden="true"></i>
-        </button>
-        <button class="control-btn" id="nextBtn" title="下一首" aria-label="播放下一首歌曲">
-          <i class="fas fa-step-forward" aria-hidden="true"></i>
-        </button>
-        <button class="control-btn" id="playModeBtn" title="播放模式" aria-label="切换播放模式">
-          <i class="fas fa-list" id="playModeIcon" aria-hidden="true"></i>
-        </button>
-      </div>
+              <div class="player-controls">
+          <button class="control-btn" id="prevBtn" title="上一首">
+            <i class="fas fa-step-backward"></i>
+          </button>
+          <button class="control-btn play-pause" id="playPauseBtn" title="播放/暂停">
+            <i class="fas fa-play"></i>
+          </button>
+          <button class="control-btn" id="nextBtn" title="下一首">
+            <i class="fas fa-step-forward"></i>
+          </button>
+          <button class="control-btn" id="playModeBtn" title="播放模式">
+            <i class="fas fa-list" id="playModeIcon"></i>
+          </button>
+        </div>
         
         <!-- 音频加载状态 -->
         <div class="loading-overlay" id="audioLoadingOverlay" style="display: none;">
           <div class="loading-spinner"></div>
         </div>
 
-      <div class="progress-container" role="group" aria-label="播放进度">
-        <div class="progress-bar" id="progressBar" role="slider" aria-label="播放进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar">
           <div class="progress-fill" id="progressFill"></div>
         </div>
-        <div class="progress-time" aria-live="polite">
-          <span id="currentTime" aria-label="当前播放时间">0:00</span>
-          <span id="totalTime" aria-label="歌曲总时长">0:00</span>
+        <div class="progress-time">
+          <span id="currentTime">0:00</span>
+          <span id="totalTime">0:00</span>
         </div>
       </div>
 
-      <div class="volume-container" role="group" aria-label="音量控制">
-        <button class="control-btn" id="volumeBtn" title="静音" aria-label="静音或取消静音">
-          <i class="fas fa-volume-up" aria-hidden="true"></i>
+      <div class="volume-container">
+        <button class="control-btn" id="volumeBtn" title="静音">
+          <i class="fas fa-volume-up"></i>
         </button>
-        <div class="volume-slider" id="volumeSlider" role="slider" aria-label="音量调节" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0">
+        <div class="volume-slider" id="volumeSlider">
           <div class="volume-fill" id="volumeFill"></div>
         </div>
       </div>
@@ -791,9 +789,9 @@
   </div>
 
   <!-- 播放指示器 -->
-  <button class="play-indicator" id="playIndicator" onclick="showCustomPlayer()" aria-label="显示音乐播放器" title="显示音乐播放器">
-    <i class="fas fa-music" aria-hidden="true"></i>
-  </button>
+  <div class="play-indicator" id="playIndicator" onclick="showCustomPlayer()">
+    <i class="fas fa-music"></i>
+  </div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
@@ -945,7 +943,7 @@
       });
     }
 
-    // 更新自定义播放器UI
+    // 更新自定义播放器UI（重置进度条）
     function updateCustomPlayerUI() {
       if (musicList[currentSongIndex]) {
         const song = musicList[currentSongIndex];
@@ -956,6 +954,17 @@
         document.getElementById('currentTime').textContent = '0:00';
         // 重置进度条
         document.getElementById('progressFill').style.width = '0%';
+      }
+    }
+
+    // 更新播放器信息（不重置进度条）
+    function updatePlayerInfo() {
+      if (musicList[currentSongIndex]) {
+        const song = musicList[currentSongIndex];
+        document.getElementById('playerTitle').textContent = song.name;
+        document.getElementById('playerArtist').textContent = song.artist;
+        document.getElementById('playerCover').src = song.cover;
+        document.getElementById('totalTime').textContent = formatTime(Math.floor(song.duration));
       }
     }
 
@@ -1314,7 +1323,8 @@
         currentSongIndex = aplayer.list.index;
         updatePlayPauseButton();
         updatePlaylistUI();
-        updateCustomPlayerUI();
+        // 只更新播放器信息，不重置进度条
+        updatePlayerInfo();
         showCustomPlayer();
         startProgressTimer();
       });
