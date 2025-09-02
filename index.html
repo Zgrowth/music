@@ -4,7 +4,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>音乐播放器</title>
+  <title>在线音乐播放器 - 免费音乐播放平台</title>
+  
+  <!-- SEO优化 -->
+  <meta name="description" content="免费在线音乐播放器，支持多种播放模式，提供高质量音乐播放体验。支持顺序播放、随机播放、单曲循环等功能。">
+  <meta name="keywords" content="音乐播放器,在线音乐,免费音乐,音乐播放,播放器,音乐平台">
+  <meta name="author" content="音乐播放器">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="zh-CN">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="在线音乐播放器 - 免费音乐播放平台">
+  <meta property="og:description" content="免费在线音乐播放器，支持多种播放模式，提供高质量音乐播放体验。">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="音乐播放器">
+  <meta property="og:locale" content="zh_CN">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="在线音乐播放器 - 免费音乐播放平台">
+  <meta property="twitter:description" content="免费在线音乐播放器，支持多种播放模式，提供高质量音乐播放体验。">
+  
+  <!-- 网站图标 -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://img.alicdn.com/imgextra/i4/O1CN01pDNumx1txOoBIWlGc_!!6000000005968-2-tps-32-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://img.alicdn.com/imgextra/i4/O1CN01pDNumx1txOoBIWlGc_!!6000000005968-2-tps-32-32.png">
+  <link rel="apple-touch-icon" href="https://img.alicdn.com/imgextra/i4/O1CN01pDNumx1txOoBIWlGc_!!6000000005968-2-tps-32-32.png">
+  <link rel="shortcut icon" href="https://img.alicdn.com/imgextra/i4/O1CN01pDNumx1txOoBIWlGc_!!6000000005968-2-tps-32-32.png">
+  
+  <!-- 主题色 -->
+  <meta name="theme-color" content="#667eea">
+  <meta name="msapplication-TileColor" content="#667eea">
+  
+  <!-- 预加载关键资源 -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+  
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "在线音乐播放器",
+    "description": "免费在线音乐播放器，支持多种播放模式，提供高质量音乐播放体验。支持顺序播放、随机播放、单曲循环等功能。",
+    "url": "",
+    "applicationCategory": "MusicApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CNY"
+    },
+    "featureList": [
+      "顺序播放",
+      "随机播放", 
+      "单曲循环",
+      "列表循环",
+      "音量控制",
+      "进度控制",
+      "响应式设计",
+      "移动端优化"
+    ],
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "softwareVersion": "1.0.0",
+    "datePublished": "2024-01-01",
+    "dateModified": "2024-01-01",
+    "author": {
+      "@type": "Organization",
+      "name": "音乐播放器"
+    }
+  }
+  </script>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -204,7 +274,7 @@
       min-width: 0;
     }
 
-    .player-info h6 {
+    .player-info h3 {
       margin: 0 0 5px 0;
       color: #333;
       font-weight: 600;
@@ -421,7 +491,7 @@
         order: 1.5;
       }
 
-      .player-info h6 {
+      .player-info h3 {
         font-size: 0.9rem;
         margin-bottom: 2px;
         line-height: 1.2;
@@ -489,7 +559,7 @@
         height: 44px;
       }
 
-      .player-info h6 {
+      .player-info h3 {
         font-size: 0.85rem;
       }
 
@@ -547,9 +617,11 @@
       color: #333;
     }
 
-    .stats h6 {
+    .stats h2 {
       margin: 0 0 10px 0;
       opacity: 0.9;
+      font-size: 1rem;
+      font-weight: 600;
     }
 
     .stats .badge {
@@ -631,32 +703,32 @@
   <div class="container-fluid">
     <div class="music-container">
       <!-- Header -->
-      <div class="header">
-        <h1><i class="fas fa-music"></i> 音乐播放器</h1>
+      <header class="header">
+        <h1><i class="fas fa-music" aria-hidden="true"></i> 音乐播放器</h1>
         <p>享受美妙的音乐时光</p>
-      </div>
+      </header>
 
       <!-- Stats -->
-      <div class="stats" id="stats" style="display: none;">
-        <h6><i class="fas fa-chart-bar"></i> 播放统计</h6>
+      <section class="stats" id="stats" style="display: none;" aria-label="播放统计">
+        <h2><i class="fas fa-chart-bar" aria-hidden="true"></i> 播放统计</h2>
         <span class="badge" id="totalSongs">总歌曲: 0</span>
         <span class="badge" id="totalDuration">总时长: 0分钟</span>
-      </div>
+      </section>
 
       <!-- Playlist Section -->
-      <div class="playlist-section">
-        <div class="loading" id="loading">
-          <i class="fas fa-spinner"></i>
+      <main class="playlist-section" role="main">
+        <div class="loading" id="loading" role="status" aria-live="polite">
+          <i class="fas fa-spinner" aria-hidden="true"></i>
           <p>正在加载音乐列表...</p>
         </div>
 
-        <div class="error-message" id="errorMessage" style="display: none;">
-          <i class="fas fa-exclamation-triangle"></i>
+        <div class="error-message" id="errorMessage" style="display: none;" role="alert">
+          <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
           <p>加载音乐列表失败，请稍后重试</p>
         </div>
 
-        <div id="playlist" style="display: none;"></div>
-      </div>
+        <section id="playlist" style="display: none;" aria-label="音乐播放列表"></section>
+      </main>
 
       <!-- APlayer (隐藏) -->
       <div id="aplayer"></div>
@@ -664,54 +736,54 @@
   </div>
 
   <!-- 自定义播放器 -->
-  <div class="custom-player" id="customPlayer">
+  <footer class="custom-player" id="customPlayer" role="complementary" aria-label="音乐播放器">
     <div class="player-content">
-      <img src="" alt="封面" class="player-cover" id="playerCover">
+      <img src="" alt="当前播放歌曲封面" class="player-cover" id="playerCover">
 
       <div class="player-info">
-        <h6 id="playerTitle">选择一首歌曲开始播放</h6>
+        <h3 id="playerTitle">选择一首歌曲开始播放</h3>
         <p id="playerArtist">未知艺术家</p>
       </div>
 
-      <button class="control-btn minimize-btn" id="minimizeBtn" title="最小化播放器">
-        <i class="fas fa-chevron-down"></i>
+      <button class="control-btn minimize-btn" id="minimizeBtn" title="最小化播放器" aria-label="最小化播放器">
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
       </button>
 
-              <div class="player-controls">
-          <button class="control-btn" id="prevBtn" title="上一首">
-            <i class="fas fa-step-backward"></i>
-          </button>
-          <button class="control-btn play-pause" id="playPauseBtn" title="播放/暂停">
-            <i class="fas fa-play"></i>
-          </button>
-          <button class="control-btn" id="nextBtn" title="下一首">
-            <i class="fas fa-step-forward"></i>
-          </button>
-          <button class="control-btn" id="playModeBtn" title="播放模式">
-            <i class="fas fa-list" id="playModeIcon"></i>
-          </button>
-        </div>
+      <div class="player-controls" role="group" aria-label="播放控制">
+        <button class="control-btn" id="prevBtn" title="上一首" aria-label="播放上一首歌曲">
+          <i class="fas fa-step-backward" aria-hidden="true"></i>
+        </button>
+        <button class="control-btn play-pause" id="playPauseBtn" title="播放/暂停" aria-label="播放或暂停当前歌曲">
+          <i class="fas fa-play" aria-hidden="true"></i>
+        </button>
+        <button class="control-btn" id="nextBtn" title="下一首" aria-label="播放下一首歌曲">
+          <i class="fas fa-step-forward" aria-hidden="true"></i>
+        </button>
+        <button class="control-btn" id="playModeBtn" title="播放模式" aria-label="切换播放模式">
+          <i class="fas fa-list" id="playModeIcon" aria-hidden="true"></i>
+        </button>
+      </div>
         
         <!-- 音频加载状态 -->
         <div class="loading-overlay" id="audioLoadingOverlay" style="display: none;">
           <div class="loading-spinner"></div>
         </div>
 
-      <div class="progress-container">
-        <div class="progress-bar" id="progressBar">
+      <div class="progress-container" role="group" aria-label="播放进度">
+        <div class="progress-bar" id="progressBar" role="slider" aria-label="播放进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
           <div class="progress-fill" id="progressFill"></div>
         </div>
-        <div class="progress-time">
-          <span id="currentTime">0:00</span>
-          <span id="totalTime">0:00</span>
+        <div class="progress-time" aria-live="polite">
+          <span id="currentTime" aria-label="当前播放时间">0:00</span>
+          <span id="totalTime" aria-label="歌曲总时长">0:00</span>
         </div>
       </div>
 
-      <div class="volume-container">
-        <button class="control-btn" id="volumeBtn" title="静音">
-          <i class="fas fa-volume-up"></i>
+      <div class="volume-container" role="group" aria-label="音量控制">
+        <button class="control-btn" id="volumeBtn" title="静音" aria-label="静音或取消静音">
+          <i class="fas fa-volume-up" aria-hidden="true"></i>
         </button>
-        <div class="volume-slider" id="volumeSlider">
+        <div class="volume-slider" id="volumeSlider" role="slider" aria-label="音量调节" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0">
           <div class="volume-fill" id="volumeFill"></div>
         </div>
       </div>
@@ -719,9 +791,9 @@
   </div>
 
   <!-- 播放指示器 -->
-  <div class="play-indicator" id="playIndicator" onclick="showCustomPlayer()">
-    <i class="fas fa-music"></i>
-  </div>
+  <button class="play-indicator" id="playIndicator" onclick="showCustomPlayer()" aria-label="显示音乐播放器" title="显示音乐播放器">
+    <i class="fas fa-music" aria-hidden="true"></i>
+  </button>
 
   <!-- Bootstrap JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
