@@ -864,8 +864,8 @@
           return {
             name: audio.title || '未知歌曲',
             artist: audio.performer || '未知艺术家',
-            url: `https://open.952737.xyz/api/getFileByTgFileId?file_id=${audio.file_id}`,
-            cover: audio.thumbnail ? `https://open.952737.xyz/api/getFileByTgFileId?file_id=${audio.thumbnail.file_id}` : 'https://img.alicdn.com/imgextra/i4/O1CN01meSBwL1sJisjPHGXH_!!6000000005746-2-tps-262-256.png',
+            url: `https://open.952737.xyz/api/getFileByTgFileId/${audio.file_id}`,
+            cover: audio.thumbnail ? `https://open.952737.xyz/api/getFileByTgFileId/${audio.thumbnail.file_id}` : 'https://img.alicdn.com/imgextra/i4/O1CN01meSBwL1sJisjPHGXH_!!6000000005746-2-tps-262-256.png',
             duration: audio.duration || 0,
             index: index
           };
